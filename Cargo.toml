@@ -11,24 +11,19 @@ description = "Robust statistical analysis toolkit with emphasis on multimodalit
 
 [dependencies]
 # Re-export workspace crates
-robust-core = { path = "crates/robust-core", features = [
-    "simd",
-    "parallel",
-] }
+robust-core = { path = "crates/robust-core", features = ["simd", "parallel"] }
 
 robust-quantile = { path = "crates/robust-quantile", features = [
     "simd",
     "parallel",
 ] }
-robust-histogram = { path = "crates/robust-histogram", features = [
-    "quantile",
-] }
+robust-histogram = { path = "crates/robust-histogram", features = ["quantile"] }
 robust-spread = { path = "crates/robust-spread", features = ["quantile"] }
 robust-confidence = { path = "crates/robust-confidence" }
 robust-effect = { path = "crates/robust-effect" }
-# robust-modality = { path = "crates/robust-modality", features = ["polars"] }
+robust-modality = { path = "crates/robust-modality"}
 robust-changepoint = { path = "crates/robust-changepoint" }
-# robust-stability = { path = "crates/robust-stability", features = ["polars"] }
+robust-stability = { path = "crates/robust-stability" }
 # robust-viz = { path = "crates/robust-viz", optional = true, features = [
 #     "modality",
 #     "changepoint",
@@ -38,7 +33,12 @@ robust-changepoint = { path = "crates/robust-changepoint" }
 
 [features]
 default = []
-parallel = ["robust-core/parallel", "robust-quantile/parallel", "robust-spread/parallel", "robust-confidence/parallel"]
+parallel = [
+    "robust-core/parallel",
+    "robust-quantile/parallel",
+    "robust-spread/parallel",
+    "robust-confidence/parallel",
+]
 # TODO: Re-enable after updating to new trait system
 # viz = ["robust-viz"]
 
@@ -78,7 +78,6 @@ tracing-subscriber = { version = "0.3", features = [
 [workspace]
 members = [
     "crates/robust-core",
-
     "crates/robust-quantile",
     "crates/robust-histogram",
     "crates/robust-spread",
@@ -139,7 +138,7 @@ log = "0.4"
 csv = "1.3"
 polars = "0.48"
 
-# Visualization  
+# Visualization
 plotters = "0.3"
 charming = "0.5"
 

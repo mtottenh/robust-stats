@@ -16,7 +16,3 @@ approx = { workspace = true }
 rand = { workspace = true }
 criterion = { workspace = true }
 anyhow = { workspace = true }
-
-[[bench]]
-name = "hilbert_benchmark"
-harness = false
