@@ -1,0 +1,52 @@
+[package]
+name = "robust-core"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+keywords = ["statistics", "robust", "core", "traits"]
+categories = ["science", "algorithms"]
+description = "Core traits and types for robust statistical analysis"
+
+[dependencies]
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+statrs = { workspace = true }
+num_cpus = "1.0"
+bitflags = { workspace = true }
+rayon = { workspace = true, optional = true }
+ordered-float = { workspace = true }
+rand = { workspace = true, optional = true }
+uuid = { workspace = true }
+serde = { workspace = true }
+serde_json = "1.0"
+log = { workspace = true }
+bytemuck = { workspace = true }
+num-traits = { workspace = true }
+
+
+[features]
+default = []
+simd = []
+parallel = ["dep:rayon"]
+rand = ["dep:rand"]
+avx2 = []
+avx512 = ["nightly"]
+sse = []
+nightly = []
+benchmark-variants = []
+
+[dev-dependencies]
+approx = { workspace = true }
+proptest = { workspace = true }
+criterion = { workspace = true }
+
+[[bench]]
+name = "primitives_bench"
+harness = false
+
+[[bench]]
+name = "memory_layout_bench"
+harness = false
+required-features = ["benchmark-variants"]
