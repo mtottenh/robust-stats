@@ -1,0 +1,33 @@
+[package]
+name = "robust-changepoint"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+description = "Robust changepoint detection algorithms"
+license.workspace = true
+
+[dependencies]
+robust-core = { workspace = true }
+robust-spread = { workspace = true }
+robust-quantile = { workspace = true }
+nalgebra = { workspace = true }
+anyhow = { workspace = true }
+num-traits = { workspace = true }
+
+[dev-dependencies]
+approx = { workspace = true }
+rand = { workspace = true }
+rand_distr = { workspace = true }
+criterion = { workspace = true }
+
+[features]
+default = []
+
+[[example]]
+name = "acceleration_detection"
+
+[[example]]
+name = "basic_detection"
+
+[[example]]
+name = "realistic_scenarios"
