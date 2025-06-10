@@ -1,0 +1,48 @@
+[package]
+name = "robust-quantile"
+version = "0.1.0"
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+keywords = ["statistics", "quantile", "percentile", "robust"]
+categories = ["science", "algorithms"]
+description = "Robust quantile estimation algorithms"
+
+[dependencies]
+robust-core = { workspace = true }
+statrs = { workspace = true }
+thiserror = { workspace = true }
+rand = { workspace = true }
+tracing = { workspace = true }
+wide = { workspace = true, optional = true }
+ordered-float = { workspace = true }
+num-traits = { workspace = true }
+
+[features]
+default = []
+parallel = ["robust-core/parallel"]
+simd = ["robust-core/simd"]
+avx2 = ["robust-core/avx2"]
+
+[dev-dependencies]
+approx = { workspace = true }
+rand = { workspace = true }
+criterion = { workspace = true }
+rand_distr = { workspace = true }
+rand_chacha = { workspace = true }
+rayon = { workspace = true }
+num_cpus = "1.16"
+
+[[test]]
+name = "statistical_equivalence"
+path = "tests/statistical_equivalence.rs"
+
+[[bench]]
+name = "quick_benchmark"
+harness = false
+
+[[bench]]
+name = "dispatch_strategy_bench"
+harness = false
+
