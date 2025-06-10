@@ -98,4 +98,4 @@ Reduces influence of extreme order statistics:
 ## References
 
 - Harrell, F.E. and Davis, C.E. (1982). A new distribution-free quantile estimator. Biometrika, 69(3), 635-640.
-- Akinshin, A. (2023). Trimmed Harrell-Davis quantile estimator. [Blog post](https://aakinshin.net/posts/trimmed-hd-quantile-estimator/)
+- Akinshin, A. (2023). Trimmed Harrell-Davis quantile estimator. [Blog post](https://aakinshin.net/posts/thdqe-hdi/)
